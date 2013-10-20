@@ -57,6 +57,11 @@ typeBtn.on('click', function(){
   typeBtn.parent().addClass('active');
 });
 
+typeDiv.find(".btn").on("click", function(e){
+  var text = typeDiv.find("input").val();
+  playJyutping(text);
+});
+
 for(var i = 0; i < hundred_important.length; i++){
   var word = hundred_important[i],
       card = $('<div class="card">'
@@ -288,7 +293,26 @@ function prevCard(){
 
   }
 }
-
+function playJyutping(text){
+  var words = text.split(" "),
+      paths = [],
+      bufferLoader,
+      i,
+      source = [];
+  for (i = words.length - 1; i >= 0; i--) {
+    paths[i] = "sounds/jyutping-wong/"+words[i]+".wav";
+  };
+  // var paths = _.map(words, function(t){return "sounds/jyutping-wong/"+t+".wav"});
+  bufferLoader = new BufferLoader(context, paths, function(bufferList){
+    for (i = bufferList.length - 1; i >= 0; i--) {
+      source[i] = context.createBufferSource();
+      source[i].buffer = bufferList[i];
+      source[i].connect(context.destination);
+      source[i].start(i*0.3);
+    };
+  });
+  bufferLoader.load();
+}
 
 
 });

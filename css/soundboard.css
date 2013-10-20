@@ -1,0 +1,138 @@
+body {
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+.form-jyutping,
+.cards,
+.soundboard {
+  display: none;
+}
+
+.form-jyutping {
+  display: none;
+  max-width: 730px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-jyutping .form-jyutping-heading,
+.form-jyutping .form-control,
+.form-jyutping .checkbox {
+  margin-bottom: 10px;
+}
+.form-jyutping .checkbox {
+  font-weight: normal;
+}
+.form-jyutping .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+          box-sizing: border-box;
+}
+.form-jyutping .form-control:focus {
+  z-index: 2;
+}
+
+.cards {
+  position: relative;
+  overflow: hidden;
+  height: 600px;
+          perspective: 800px;
+}
+
+.cards .card {
+  height: 300px;
+  width: 400px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: none;
+  margin: 10px auto;
+}
+
+.card {
+  cursor: pointer;
+  user-select: none ;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.card-flipped {
+  transform: rotateX(180deg);
+}
+
+.side-a,
+.side-b {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px black;
+  backface-visibility: hidden;
+  height: 90%;
+  overflow: hidden;
+  position: absolute;
+  width: 90%;
+}
+
+.side-b {
+  transform: rotateX(180deg);
+}
+
+.cards .chinese {
+  font-size: 100pt;
+  margin: 20px;
+  text-align: center;
+}
+
+.cards .english {
+  font-size: 60pt;
+  margin: 20px;
+  text-align: center;
+}
+
+.cards .jyutping {
+  font-size: 24pt;
+  text-align: center;
+}
+
+.card-current {
+  display: block;
+  z-index: 2;
+  /*-webkit-transform: rotateY(0deg) translateZ(200px);*/
+}
+
+.card-next {
+  display: block;
+  z-index: 2;
+  transform: translateX(1000px);
+}
+
+.card-prev {
+  display: block;
+  transform: translateZ(-200px);
+}
+
+.soundboard {
+  perspective: 1000px;
+}
+
+.soundboard .card {
+  display: inline-block;
+  height: 75px;
+  width: 100px;
+}
+
+.soundboard .chinese {
+  font-size: 36pt;
+  text-align: center;
+}
+
+.soundboard .english {
+  font-size: 16pt;
+  text-align: center;
+}
+
+.soundboard .jyutping {
+  font-size: 10pt;
+  text-align: center;
+}

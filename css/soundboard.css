@@ -34,6 +34,10 @@ body {
   z-index: 2;
 }
 
+.answer-btns {
+	margin-top: 400px;
+}
+
 .cards {
   position: relative;
   overflow: hidden;

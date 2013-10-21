@@ -7,9 +7,6 @@ function BufferLoader(context, urlList, callback) {
 }
 
 BufferLoader.prototype.loadBuffer = function(url, index) {
-  if(!this.context){
-    return
-  }
   // Load buffer asynchronously
   var request = new XMLHttpRequest();
   request.open("GET", url, true);

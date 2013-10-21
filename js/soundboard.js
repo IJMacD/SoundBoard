@@ -357,23 +357,17 @@ function prevCard(){
   }
 }
 function playJyutping(text){
-  var words = text.split(" "),
-      paths = [],
-      bufferLoader,
+  var paths = _.map(text.split(" "), function(t){return "sounds/jyutping-wong/"+t+".wav"}),
       i,
-      source = [];
-  for (i = words.length - 1; i >= 0; i--) {
-    paths[i] = "sounds/jyutping-wong/"+words[i]+".wav";
-  };
-  // var paths = _.map(words, function(t){return "sounds/jyutping-wong/"+t+".wav"});
-  bufferLoader = new BufferLoader(context, paths, function(bufferList){
-    for (i = bufferList.length - 1; i >= 0; i--) {
-      source[i] = context.createBufferSource();
-      source[i].buffer = bufferList[i];
-      source[i].connect(context.destination);
-      source[i].start(i*0.3);
-    };
-  });
+      source;
+      bufferLoader = new BufferLoader(context, paths, function(bufferList){
+        for (i = bufferList.length - 1; i >= 0; i--) {
+          source = context.createBufferSource();
+          source.buffer = bufferList[i];
+          source.connect(context.destination);
+          source.start(context.currentTime+i*0.3);
+        };
+      });
   bufferLoader.load();
 }
 

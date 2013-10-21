@@ -81,6 +81,16 @@ var correctAnswer;
 var score = 0;
 var answered = 0;
 
+var recentList = $('#recent-phrases'),
+    recents = [],
+    maxRecents = 50;
+
+recentList.on("click", "li", function(e){
+  var text = $(e.currentTarget).text();
+  typeDiv.find("input").val(text);
+  playJyutping(text);
+});
+
 sections.hide();
 
 navBar.on("click", ".btn", function(e){
@@ -364,7 +374,26 @@ function playJyutping(text){
         };
       });
   bufferLoader.load();
+  addRecentPhrase(text);
 }
-
+function addRecentPhrase(phrase){
+  if(recents[recents.length - 1] == phrase){
+    return;
+  }
+  var index = _.indexOf(recents, phrase);
+  if(index > -1){
+    recents = recents.slice(0,index).concat(recents.slice(index+1), phrase);
+  }
+  else {
+    recents.push(phrase);
+  }
+  if(recents.length > maxRecents){
+    recents = recents.slice(recents.length - maxRecents);
+  }
+  recentList.empty();
+  _.each(recents, function(phrase){
+    $('<li>').text(phrase).prependTo(recentList);
+  });
+}
 
 });

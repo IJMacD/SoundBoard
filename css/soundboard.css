@@ -1,4 +1,6 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
 body {
+  padding-top: 50px;
   padding-bottom: 40px;
   background-color: #eee;
 }
@@ -122,4 +124,32 @@ body {
 .soundboard .jyutping {
   font-size: 10pt;
   text-align: center;
+}
+
+#recent-phrases {
+  background: white;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding-left: 0px;
+}
+/*#recent-phrases:not(:empty)::before {
+  content: "Recent Phrases";
+  font-size: 1.2em;
+}*/
+#recent-phrases:empty {
+  display: none;
+}
+#recent-phrases li {
+  border-bottom: 1px solid #DDD;
+  cursor: pointer;
+  font-size: 1.1em;
+  list-style: none;
+  padding: 10px;
+}
+#recent-phrases li:hover {
+  color: #77F;
+}
+#recent-phrases li:last-child{
+  border-bottom: none;
 }

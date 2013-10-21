@@ -11,27 +11,8 @@ body {
 
 .form-jyutping {
   display: none;
-  max-width: 730px;
   padding: 15px;
   margin: 0 auto;
-}
-.form-jyutping .form-jyutping-heading,
-.form-jyutping .form-control,
-.form-jyutping .checkbox {
-  margin-bottom: 10px;
-}
-.form-jyutping .checkbox {
-  font-weight: normal;
-}
-.form-jyutping .form-control {
-  position: relative;
-  font-size: 16px;
-  height: auto;
-  padding: 10px;
-          box-sizing: border-box;
-}
-.form-jyutping .form-control:focus {
-  z-index: 2;
 }
 
 .answer-btns {

@@ -98,8 +98,10 @@ function navigateTo(tag){
 }
 
 var sectionHash = window.location.hash;
-if($("#"+sectionHash.substr(1))){
+if($("#"+sectionHash.substr(1)).length){
   navigateTo(sectionHash.substr(1));
+}else{
+  navigateTo(sections.attr("id"));
 }
 
 typeDiv.find(".btn").on("click", function(e){
@@ -133,7 +135,7 @@ for(var i = 0; i < current_set.length; i++){
      card.removeClass("card-flipped");
     };
   }(card)));
-  soundboardDiv.append(card);
+  $('<div>').addClass("super-card").append(card).appendTo(soundboardDiv);
 }
 
 var buttons = $('.cards button');
@@ -147,6 +149,7 @@ var answerButtons = [
   $(buttons[2]),
   $(buttons[3])
   ];
+nextCard();
 function answerTestCard(answer){
   if(correctAnswer == answer){
     incrementScore();

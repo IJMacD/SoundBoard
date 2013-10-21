@@ -22,8 +22,6 @@ body {
 .cards {
   position: relative;
   overflow: hidden;
-  height: 600px;
-          perspective: 800px;
 }
 
 .cards .card {
@@ -34,6 +32,9 @@ body {
   right: 0;
   display: none;
   margin: 10px auto;
+}
+.super-card {
+  perspective: 800px;
 }
 
 .card {
@@ -101,6 +102,7 @@ body {
   perspective: 1000px;
 }
 
+.soundboard .super-card,
 .soundboard .card {
   display: inline-block;
   height: 75px;

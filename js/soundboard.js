@@ -69,46 +69,38 @@ var btns = $('.btn');
 var soundboardBtn = $(btns.get(0));
 var testBtn = $(btns.get(1));
 var typeBtn = $(btns.get(2));
-
 var soundboardDiv = $('.soundboard').show();
 var testDiv = $('.cards');
 var typeDiv = $('.form-jyutping');
+
+var sections = $('section'),
+    navBar = $('.navbar-nav'),
+    sectionIndex = {};
 
 var correctAnswer;
 var score = 0;
 var answered = 0;
 
-soundboardBtn.on('click', function(){
-  btns.parent().removeClass('active');
-  soundboardDiv.show();
-  soundboardBtn.parent().addClass('active');
-  testDiv.hide();
-  typeDiv.hide();
-});
-testBtn.on('click', function(){
-  btns.parent().removeClass('active');
-  soundboardDiv.hide();
-  testDiv.show();
-  testBtn.parent().addClass('active');
-  typeDiv.hide();
+sections.hide();
 
-  // setInterval(function(){
-  //   setTimeout(flipCard, 300);
-  //   setTimeout(flipCard, 1000);
-  //   setTimeout(flipCard, 1800);
-  //   setTimeout(flipCard, 2100);
-  //   setTimeout(flipCard, 2400);
-  //   setTimeout(nextCard, 3000);
-  // }, 3000);
-  nextCard();
+navBar.on("click", ".btn", function(e){
+  var href = $(e.currentTarget).attr("href");
+  if(href){
+    navigateTo(href.substr(1));
+  }
 });
-typeBtn.on('click', function(){
-  btns.parent().removeClass('active');
-  soundboardDiv.hide();
-  testDiv.hide();
-  typeDiv.show();
-  typeBtn.parent().addClass('active');
-});
+
+function navigateTo(tag){
+  sections.hide();
+  navBar.children().removeClass("active");
+  navBar.find("[href=#"+tag+"]").parent().addClass("active");
+  $("#"+tag).show();
+}
+
+var sectionHash = window.location.hash;
+if($("#"+sectionHash.substr(1))){
+  navigateTo(sectionHash.substr(1));
+}
 
 typeDiv.find(".btn").on("click", function(e){
   var text = typeDiv.find("input").val();

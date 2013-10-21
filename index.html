@@ -30,13 +30,13 @@
 
       <nav class="nav navbar navbar-default">
         <ul class="nav navbar-nav">
-          <li class="active"><a class="btn">Sound Board</a>
-          <li><a class="btn">Test Cards</a>
-          <li><a class="btn">Talker</a>
+          <li class="active"><a class="btn" href="#soundboard">Sound Board</a>
+          <li><a class="btn" href="#testcards">Test Cards</a>
+          <li><a class="btn" href="#talker">Talker</a>
         </ul>
       </nav>
 
-      <div class="form-jyutping form-inline" role="form">
+      <section id="talker" class="form-jyutping form-inline" role="form">
         <h2 class="form-jyutping-heading">Enter jyutping</h2>
         <div class="input-group input-group-lg">
           <input type="text" class="form-control" placeholder="Jyutping">
@@ -44,9 +44,9 @@
             <button class="btn btn-primary">Play</button>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="cards">
+      <section id="testcards" class="cards">
 	      <h2>Test Cards</h2>
         <p><span id="score"></span> / <span id="answered"></span></p>
         <div class="card card-prev">
@@ -76,15 +76,15 @@
             <p class="jyutping"></p>
           </div>
         </div>
-		<div class="row answer-btns">
-			<div class="col-md-3"><button class="btn btn-block btn-lg btn-primary cards-answer"></button></div>
-			<div class="col-md-3"><button class="btn btn-block btn-lg btn-primary cards-answer"></button></div>
-			<div class="col-md-3"><button class="btn btn-block btn-lg btn-primary cards-answer"></button></div>
-			<div class="col-md-3"><button class="btn btn-block btn-lg btn-primary cards-answer"></button></div>
-		</div>
-	  </div>
+    		<div class="row answer-btns">
+    			<div class="col-md-3"><button class="btn btn-block btn-lg btn-primary cards-answer"></button></div>
+    			<div class="col-md-3"><button class="btn btn-block btn-lg btn-primary cards-answer"></button></div>
+    			<div class="col-md-3"><button class="btn btn-block btn-lg btn-primary cards-answer"></button></div>
+    			<div class="col-md-3"><button class="btn btn-block btn-lg btn-primary cards-answer"></button></div>
+    		</div>
+  	  </section>
 
-      <div class="soundboard"></div>
+      <section id="soundboard" class="soundboard"></section>
 
     </div> <!-- /container -->
 
